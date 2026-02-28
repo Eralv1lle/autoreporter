@@ -10,7 +10,7 @@ class BaseModel(Model):
 
 
 class User(BaseModel):
-    user_id = IntegerField(unique=True, primary_key=True)
+    user_id = BigIntegerField(unique=True, primary_key=True)
     name = CharField()
     username = CharField(null=True)
     created_at = DateTimeField(default=datetime.now)
