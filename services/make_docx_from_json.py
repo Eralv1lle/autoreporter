@@ -7,7 +7,7 @@ import json
 from config import config
 
 
-def make_docx_from_json(data: dict, user_id: int, num: int = None) -> str:
+def make_docx_from_json(data: dict, user_id: int, num: int = 0) -> str:
     doc = Document()
     style = doc.styles["Normal"]
     style.font.name = data["styles"]["font"]
@@ -37,6 +37,6 @@ def make_docx_from_json(data: dict, user_id: int, num: int = None) -> str:
             r.italic = item["italic"]
             r.underline = item["underlined"]
 
-    filename = f"{data["report_name"]}_{user_id}.docx"
+    filename = f"{data["report_name"]}_{user_id}_{num}.docx"
     doc.save(f"{config.DOCS_DIRECTORY}/{filename}")
     return filename

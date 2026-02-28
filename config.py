@@ -5,7 +5,7 @@ class Config(BaseSettings):
     BOT_TOKEN: str
     GEMINI_API: str
     DOCS_DIRECTORY: str
-    USER: str
+    DB_USER: str
     PASSWORD: str
     HOST: str
     PORT: int

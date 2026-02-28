@@ -132,7 +132,8 @@ async def accept(callback: CallbackQuery, state: FSMContext):
     )
     await callback.answer()
 
-    filename = await make_docx(request, callback.from_user.id)
+    cnt = user.documents.count()
+    filename = await make_docx(request, callback.from_user.id, cnt + 1)
     file = FSInputFile(f"docs/{filename}")
 
     await callback.message.answer_document(
